@@ -1,0 +1,1795 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Md. Rakibul Hasan — Portfolio & CV</title>
+<meta name="description" content="Online CV and portfolio of Md. Rakibul Hasan, MBA graduate and ICT professional.">
+
+<!-- ============================================================
+     FONTS
+     ============================================================ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Public+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* =====================================================================
+   1. CSS VARIABLES  — "Dossier" design system
+   Palette: ink navy / worn-paper cream / seal gold / archive teal
+   ===================================================================== */
+:root{
+  /* -- colors: light (paper) mode -- */
+  --paper:        #F1F0E8;
+  --paper-raised: #FBFAF5;
+  --ink:          #17232B;
+  --ink-soft:     #4C5A61;
+  --line:         #D8D4C3;
+  --line-strong:  #B9B39B;
+  --gold:         #AD7F2A;
+  --gold-deep:    #7C5A1C;
+  --teal:         #1F5C56;
+  --teal-deep:    #123D39;
+  --danger:       #9B3B31;
+  --shadow:       0 10px 30px -12px rgba(23,35,43,.28);
+
+  /* -- surfaces -- */
+  --bg:           var(--paper);
+  --surface:      var(--paper-raised);
+  --text:         var(--ink);
+  --text-soft:    var(--ink-soft);
+  --border:       var(--line);
+  --border-strong:var(--line-strong);
+  --accent:       var(--gold);
+  --accent-deep:  var(--gold-deep);
+
+  /* -- type -- */
+  --font-display: 'Fraunces', serif;
+  --font-body:    'Public Sans', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, monospace;
+
+  /* -- layout -- */
+  --max: 1120px;
+  --radius: 3px;
+  --radius-lg: 6px;
+  --gap: 1.5rem;
+  --nav-h: 68px;
+}
+
+[data-theme="dark"]{
+  --paper:        #121B21;
+  --paper-raised: #182229;
+  --ink:          #EDE9DC;
+  --ink-soft:     #A9AFA9;
+  --line:         #2B3841;
+  --line-strong:  #3C4B54;
+  --gold:         #D3A94C;
+  --gold-deep:    #E8C36B;
+  --teal:         #4FA69B;
+  --teal-deep:    #6FC2B6;
+  --shadow:       0 10px 34px -12px rgba(0,0,0,.55);
+  --bg:           var(--paper);
+  --surface:      var(--paper-raised);
+  --text:         var(--ink);
+  --text-soft:    var(--ink-soft);
+  --border:       var(--line);
+  --border-strong:var(--line-strong);
+  --accent:       var(--gold);
+  --accent-deep:  var(--gold-deep);
+}
+
+/* =====================================================================
+   2. GLOBAL CSS
+   ===================================================================== */
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;}
+}
+body{
+  margin:0;
+  font-family:var(--font-body);
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  transition:background .25s ease, color .25s ease;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+ul{margin:0;padding:0;list-style:none;}
+h1,h2,h3,h4{font-family:var(--font-display);margin:0 0 .5em;font-weight:600;letter-spacing:-.01em;line-height:1.15;}
+p{margin:0 0 1em;color:var(--text-soft);}
+button,input,textarea,select{font-family:inherit;font-size:1rem;color:inherit;}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+.container{max-width:var(--max);margin:0 auto;padding:0 1.5rem;}
+.eyebrow{
+  font-family:var(--font-mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent-deep);display:flex;align-items:center;gap:.6em;margin-bottom:.9em;
+}
+.eyebrow::before{content:'';width:22px;height:1px;background:var(--accent);display:inline-block;}
+.section{padding:5.5rem 0;border-bottom:1px solid var(--border);}
+.section-head{max-width:640px;margin-bottom:2.75rem;}
+.section-head h2{font-size:clamp(1.7rem,3vw,2.3rem);}
+.section-head .sub{color:var(--text-soft);max-width:52ch;}
+
+/* buttons */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.5em;
+  font-family:var(--font-mono);font-size:.82rem;letter-spacing:.04em;text-transform:uppercase;
+  padding:.85em 1.5em;border-radius:var(--radius);border:1px solid var(--ink);
+  background:var(--ink);color:var(--paper);cursor:pointer;transition:transform .15s ease, background .2s ease, color .2s ease, border-color .2s ease;
+  white-space:nowrap;
+}
+[data-theme="dark"] .btn{background:var(--gold);border-color:var(--gold);color:#16201F;}
+.btn:hover{transform:translateY(-2px);}
+.btn-outline{background:transparent;color:var(--text);border-color:var(--border-strong);}
+[data-theme="dark"] .btn-outline{color:var(--text);}
+.btn-gold{background:var(--accent);border-color:var(--accent);color:#fff;}
+.btn-danger{background:transparent;border-color:var(--danger);color:var(--danger);}
+.btn-sm{padding:.5em 1em;font-size:.72rem;}
+.btn-block{width:100%;}
+
+/* =====================================================================
+   3. COMPONENT CSS
+   ===================================================================== */
+
+/* --- Nav --- */
+.nav{
+  position:sticky;top:0;z-index:80;height:var(--nav-h);
+  background:color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--border);
+}
+.nav .container{height:100%;display:flex;align-items:center;justify-content:space-between;}
+.brand{font-family:var(--font-display);font-weight:700;font-size:1.15rem;display:flex;align-items:baseline;gap:.4em;}
+.brand .dot{color:var(--accent);}
+.nav-links{display:flex;gap:2rem;}
+.nav-links a{
+  font-family:var(--font-mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--text-soft);position:relative;padding:.3em 0;
+}
+.nav-links a:hover, .nav-links a.active{color:var(--text);}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--accent);transition:width .2s ease;}
+.nav-links a:hover::after, .nav-links a.active::after{width:100%;}
+.nav-actions{display:flex;align-items:center;gap:.6rem;}
+.icon-btn{
+  width:38px;height:38px;border-radius:50%;border:1px solid var(--border-strong);
+  background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;
+  color:var(--text);transition:border-color .2s ease, transform .15s ease;
+}
+.icon-btn:hover{border-color:var(--accent);transform:translateY(-1px);}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;}
+.hamburger span{width:22px;height:2px;background:var(--text);display:block;}
+
+/* --- Hero --- */
+.hero{padding:5rem 0 5.5rem;border-bottom:1px solid var(--border);}
+.hero .container{display:grid;grid-template-columns:1.15fr .85fr;gap:3.5rem;align-items:center;}
+.hero-kicker{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:1.1rem;display:block;}
+.hero h1{font-size:clamp(2.4rem,5vw,3.6rem);margin-bottom:.3em;}
+.hero h1 em{font-style:italic;color:var(--accent-deep);}
+.hero .role{font-family:var(--font-mono);font-size:1rem;color:var(--text-soft);margin-bottom:1.4rem;}
+.hero .intro{font-size:1.08rem;max-width:52ch;margin-bottom:2rem;}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.2rem;}
+.hero-meta{display:flex;gap:1.6rem;flex-wrap:wrap;font-family:var(--font-mono);font-size:.78rem;color:var(--text-soft);}
+.hero-meta span{display:flex;align-items:center;gap:.5em;}
+.hero-meta .dotsep{width:5px;height:5px;border-radius:50%;background:var(--accent);}
+
+.hero-photo-wrap{position:relative;justify-self:center;}
+.hero-photo{
+  width:280px;height:340px;object-fit:cover;border-radius:var(--radius-lg);
+  border:1px solid var(--border-strong);box-shadow:var(--shadow);background:var(--surface);
+}
+.seal{
+  position:absolute;bottom:-18px;left:-22px;width:104px;height:104px;
+  border-radius:50%;border:2px dashed var(--accent);display:flex;align-items:center;justify-content:center;
+  text-align:center;transform:rotate(-14deg);background:var(--surface);box-shadow:var(--shadow);
+}
+.seal span{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-deep);line-height:1.4;}
+
+/* --- About / Objective --- */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;}
+.field-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);
+  padding:1.6rem 1.8rem;
+}
+.field-card h3{font-size:1rem;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.08em;color:var(--accent-deep);margin-bottom:.7em;}
+
+/* --- Timeline (Education / Experience) --- */
+.timeline{position:relative;padding-left:2rem;border-left:1px solid var(--border-strong);}
+.tl-item{position:relative;padding-bottom:2.4rem;}
+.tl-item:last-child{padding-bottom:0;}
+.tl-item::before{
+  content:'';position:absolute;left:-2.42rem;top:.3rem;width:12px;height:12px;border-radius:50%;
+  background:var(--surface);border:2px solid var(--accent);
+}
+.tl-date{font-family:var(--font-mono);font-size:.75rem;color:var(--accent-deep);letter-spacing:.05em;text-transform:uppercase;margin-bottom:.35em;display:block;}
+.tl-item h3{font-size:1.15rem;margin-bottom:.1em;}
+.tl-org{color:var(--text-soft);font-size:.92rem;margin-bottom:.5em;font-style:italic;}
+.tl-actions{display:flex;gap:.5rem;margin-top:.6rem;}
+
+/* --- Skills --- */
+.skills-groups{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;}
+.skill-cat h3{font-size:.95rem;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.06em;color:var(--text-soft);margin-bottom:1rem;}
+.skill-row{margin-bottom:1.1rem;}
+.skill-row .top{display:flex;justify-content:space-between;font-size:.9rem;margin-bottom:.4em;}
+.skill-track{height:6px;background:var(--border);border-radius:4px;overflow:hidden;}
+.skill-fill{height:100%;background:linear-gradient(90deg,var(--teal),var(--accent));border-radius:4px;width:0;transition:width 1s ease;}
+.skill-row-actions{display:none;gap:.4rem;margin-top:.4rem;}
+.edit-mode .skill-row-actions{display:flex;}
+
+/* --- Certifications --- */
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1.4rem;}
+.cert-card{
+  border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.4rem;background:var(--surface);
+  display:flex;gap:1rem;align-items:flex-start;
+}
+.cert-badge{
+  flex:none;width:44px;height:44px;border-radius:50%;border:2px solid var(--accent);
+  display:flex;align-items:center;justify-content:center;color:var(--accent-deep);font-family:var(--font-display);font-weight:700;
+}
+.cert-card h4{font-size:.98rem;margin-bottom:.2em;}
+.cert-card .issuer{font-size:.82rem;color:var(--text-soft);}
+.cert-card .date{font-family:var(--font-mono);font-size:.72rem;color:var(--accent-deep);margin-top:.3em;display:block;}
+
+/* --- Projects --- */
+.filter-row{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:2rem;}
+.chip{
+  font-family:var(--font-mono);font-size:.74rem;text-transform:uppercase;letter-spacing:.05em;
+  padding:.45em 1em;border-radius:20px;border:1px solid var(--border-strong);cursor:pointer;background:transparent;color:var(--text-soft);
+}
+.chip.active{background:var(--ink);border-color:var(--ink);color:var(--paper);}
+[data-theme="dark"] .chip.active{background:var(--gold);border-color:var(--gold);color:#16201F;}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.6rem;}
+.proj-card{
+  border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;background:var(--surface);
+  display:flex;flex-direction:column;transition:transform .2s ease, box-shadow .2s ease;
+}
+.proj-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+.proj-thumb{height:150px;background:linear-gradient(135deg,var(--teal-deep),var(--teal));display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--font-display);font-size:1.4rem;}
+.proj-body{padding:1.3rem;display:flex;flex-direction:column;gap:.6rem;flex:1;}
+.proj-body h3{font-size:1.05rem;margin:0;}
+.tech-row{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:auto;}
+.tech-tag{font-family:var(--font-mono);font-size:.68rem;padding:.25em .6em;border:1px solid var(--border-strong);border-radius:3px;color:var(--text-soft);}
+.proj-links{display:flex;gap:.8rem;margin-top:.4rem;font-family:var(--font-mono);font-size:.76rem;}
+.proj-links a{color:var(--accent-deep);border-bottom:1px solid var(--accent-deep);}
+
+/* --- Services --- */
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.4rem;}
+.svc-card{border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.6rem;background:var(--surface);}
+.svc-card .num{font-family:var(--font-mono);color:var(--accent);font-size:.8rem;display:block;margin-bottom:.6em;}
+.svc-card h3{font-size:1.05rem;}
+
+/* --- Resume/CV --- */
+.cv-actions{display:flex;gap:1rem;margin-bottom:2.5rem;flex-wrap:wrap;}
+.cv-sheet{border:1px solid var(--border);background:var(--surface);border-radius:var(--radius-lg);padding:2.5rem;}
+.cv-sheet h3{font-size:1rem;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.06em;color:var(--accent-deep);border-bottom:1px solid var(--border);padding-bottom:.4em;margin-top:2rem;margin-bottom:1rem;}
+.cv-sheet h3:first-of-type{margin-top:0;}
+.cv-entry{margin-bottom:1rem;}
+.cv-entry .row{display:flex;justify-content:space-between;font-size:.95rem;}
+.cv-entry .row b{font-weight:600;}
+.cv-entry .row span{font-family:var(--font-mono);font-size:.78rem;color:var(--text-soft);}
+.cv-entry p{margin:.3em 0 0;font-size:.9rem;}
+
+/* --- Blog --- */
+.blog-controls{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2rem;align-items:center;justify-content:space-between;}
+.search-box{
+  display:flex;align-items:center;gap:.6em;border:1px solid var(--border-strong);border-radius:var(--radius);
+  padding:.6em 1em;background:var(--surface);min-width:230px;
+}
+.search-box input{border:none;background:transparent;outline:none;width:100%;color:var(--text);}
+.blog-card{border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;background:var(--surface);cursor:pointer;transition:transform .2s ease;}
+.blog-card:hover{transform:translateY(-4px);}
+.blog-thumb{height:150px;background:linear-gradient(135deg,var(--accent-deep),var(--accent));display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--font-display);font-size:1.3rem;}
+.blog-body{padding:1.2rem;}
+.blog-cat{font-family:var(--font-mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--accent-deep);}
+.blog-body h3{font-size:1.02rem;margin:.4em 0;}
+.blog-date{font-family:var(--font-mono);font-size:.72rem;color:var(--text-soft);}
+
+/* --- Contact --- */
+.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:3rem;}
+.contact-info li{display:flex;gap:.9rem;align-items:flex-start;margin-bottom:1.3rem;}
+.contact-info .k{font-family:var(--font-mono);font-size:.72rem;text-transform:uppercase;color:var(--text-soft);letter-spacing:.06em;display:block;}
+.social-row{display:flex;gap:.7rem;margin-top:1.5rem;}
+.form-row{margin-bottom:1.1rem;}
+.form-row label{display:block;font-family:var(--font-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--text-soft);margin-bottom:.5em;}
+.form-row input,.form-row textarea,.form-row select{
+  width:100%;padding:.75em .9em;border:1px solid var(--border-strong);border-radius:var(--radius);
+  background:var(--surface);color:var(--text);
+}
+.form-row textarea{resize:vertical;min-height:110px;}
+
+/* --- Footer --- */
+footer{padding:3rem 0;}
+.footer-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.footer-row p{margin:0;font-size:.85rem;}
+.footer-links{display:flex;gap:1.2rem;}
+
+/* --- Toast --- */
+.toast{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(140%);
+  background:var(--ink);color:var(--paper);padding:.9em 1.6em;border-radius:var(--radius);
+  font-family:var(--font-mono);font-size:.82rem;z-index:400;transition:transform .3s ease;box-shadow:var(--shadow);
+}
+[data-theme="dark"] .toast{background:var(--gold);color:#16201F;}
+.toast.show{transform:translateX(-50%) translateY(0);}
+
+/* --- Admin trigger + Dashboard --- */
+.admin-fab{
+  position:fixed;bottom:22px;right:22px;z-index:200;border-radius:30px;box-shadow:var(--shadow);
+}
+.admin-panel{
+  position:fixed;inset:0;z-index:300;display:none;
+}
+.admin-panel.open{display:block;}
+.admin-overlay{position:absolute;inset:0;background:rgba(10,14,17,.55);}
+.admin-body{
+  position:absolute;top:0;right:0;height:100%;width:min(760px,94vw);background:var(--bg);
+  display:flex;box-shadow:-20px 0 40px rgba(0,0,0,.3);
+}
+.admin-tabs{
+  width:170px;flex:none;border-right:1px solid var(--border);padding:1.2rem 0;overflow-y:auto;background:var(--surface);
+}
+.admin-tabs button{
+  display:block;width:100%;text-align:left;padding:.7em 1.2rem;background:none;border:none;cursor:pointer;
+  font-family:var(--font-mono);font-size:.76rem;text-transform:uppercase;letter-spacing:.05em;color:var(--text-soft);border-left:2px solid transparent;
+}
+.admin-tabs button:hover{color:var(--text);}
+.admin-tabs button.active{color:var(--accent-deep);border-left-color:var(--accent);background:var(--bg);}
+.admin-content{flex:1;padding:1.6rem 1.8rem;overflow-y:auto;}
+.admin-content h3{font-family:var(--font-mono);text-transform:uppercase;font-size:.9rem;letter-spacing:.05em;margin-bottom:1rem;}
+.admin-close{position:absolute;top:1rem;right:1rem;}
+.list-row{
+  display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.8em 1em;
+  border:1px solid var(--border);border-radius:var(--radius);margin-bottom:.6rem;background:var(--surface);
+}
+.list-row .info b{display:block;font-size:.92rem;}
+.list-row .info span{font-family:var(--font-mono);font-size:.72rem;color:var(--text-soft);}
+.row-actions{display:flex;gap:.4rem;flex:none;}
+.settings-block{margin-bottom:1.6rem;}
+.settings-block h4{font-family:var(--font-mono);font-size:.78rem;text-transform:uppercase;color:var(--text-soft);margin-bottom:.6em;}
+
+/* --- Modal --- */
+.modal-overlay{
+  position:fixed;inset:0;background:rgba(10,14,17,.55);z-index:500;display:none;align-items:flex-start;justify-content:center;
+  overflow-y:auto;padding:4vh 1rem;
+}
+.modal-overlay.open{display:flex;}
+.modal{
+  background:var(--bg);border-radius:var(--radius-lg);width:min(560px,100%);padding:2rem;box-shadow:var(--shadow);margin-top:2vh;
+}
+.modal h3{font-size:1.2rem;margin-bottom:1.2rem;}
+.modal-actions{display:flex;gap:.8rem;justify-content:flex-end;margin-top:1.4rem;}
+
+/* rich text editor */
+.editor-toolbar{display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:.5rem;}
+.editor-toolbar button{
+  border:1px solid var(--border-strong);background:var(--surface);border-radius:3px;padding:.35em .7em;cursor:pointer;font-size:.85rem;
+}
+.editor-content{
+  min-height:160px;border:1px solid var(--border-strong);border-radius:var(--radius);padding:.9em;background:var(--surface);
+}
+.editor-content:focus{outline:2px solid var(--accent);}
+.article-content h2,.article-content h3{font-family:var(--font-display);}
+.article-content p{color:var(--text);}
+.article-content a{color:var(--accent-deep);text-decoration:underline;}
+
+/* blog detail modal */
+.article-hero{height:200px;border-radius:var(--radius-lg);background:linear-gradient(135deg,var(--accent-deep),var(--accent));margin-bottom:1.2rem;}
+
+/* =====================================================================
+   4. RESPONSIVE CSS
+   ===================================================================== */
+@media (max-width:960px){
+  .hero .container{grid-template-columns:1fr;}
+  .hero-photo-wrap{order:-1;justify-self:start;}
+  .about-grid, .skills-groups, .contact-grid{grid-template-columns:1fr;}
+}
+@media (max-width:760px){
+  .nav-links{
+    position:fixed;top:var(--nav-h);left:0;right:0;background:var(--bg);border-bottom:1px solid var(--border);
+    flex-direction:column;padding:1rem 1.5rem;gap:1rem;transform:translateY(-130%);transition:transform .25s ease;
+  }
+  .nav-links.open{transform:translateY(0);}
+  .hamburger{display:flex;}
+  .admin-body{width:100%;}
+  .admin-tabs{width:120px;}
+  .section{padding:3.5rem 0;}
+}
+@media print{
+  .nav, .admin-fab, .admin-panel, footer, .cv-actions, #home, #about, #objective, #skills, #certifications, #projects, #services, #blog, #contact{display:none!important;}
+  #resume{display:block!important;padding:0;border:none;}
+  body{background:#fff;color:#000;}
+  .cv-sheet{border:none;padding:0;}
+}
+</style>
+</head>
+<body>
+
+<!-- =====================================================================
+     1. HTML STRUCTURE
+     ===================================================================== -->
+
+<!-- Sticky Nav -->
+<nav class="nav">
+  <div class="container">
+    <a href="#home" class="brand">Rakibul<span class="dot">.</span>Hasan</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeToggle" title="Toggle dark mode" aria-label="Toggle dark mode">🌙</button>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero" id="home">
+  <div class="container">
+    <div>
+      <span class="hero-kicker">Online CV · Portfolio · Journal</span>
+      <h1 id="heroName">Md. Rakibul <em>Hasan</em></h1>
+      <div class="role" id="heroTitle">MBA Graduate · Data-Driven Business Analyst · ICT Professional</div>
+      <p class="intro" id="heroIntro">I turn spreadsheets, SOPs and scattered data into decisions people can act on — combining an MBA in management with an ICT background, hands-on data-analysis practice, and AI-assisted productivity workflows.</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn">Get in touch</a>
+        <a href="#resume" class="btn btn-outline">View résumé</a>
+      </div>
+      <div class="hero-meta" id="heroMeta">
+        <span>📍 <span id="metaLocation">Dhaka, Bangladesh</span></span>
+        <span class="dotsep"></span>
+        <span>✉️ <span id="metaEmail">rakibul.hasan@example.com</span></span>
+        <span class="dotsep"></span>
+        <span>📞 <span id="metaPhone">+880 1XXX-XXXXXX</span></span>
+      </div>
+    </div>
+    <div class="hero-photo-wrap">
+      <img class="hero-photo" id="heroPhoto" src="" alt="Profile photo of Md. Rakibul Hasan">
+      <div class="seal"><span>Open to<br>Opportunities</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- About + Objective -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">File 01 — Profile</span>
+      <h2>About &amp; Career Objective</h2>
+    </div>
+    <div class="about-grid">
+      <div class="field-card">
+        <h3>About Me</h3>
+        <p id="aboutText">I'm an MBA graduate from Dhaka with a first degree in Information &amp; Communication Technology, giving me an unusual mix of business judgement and technical fluency. Over the last few years I've worked across computer operations, office administration, and reporting roles, and I now focus on data analysis, documentation systems, and light web development — often accelerated with AI productivity tools.</p>
+      </div>
+      <div class="field-card" id="objective">
+        <h3>Career Objective</h3>
+        <p id="objectiveText2">To contribute to an organisation where analytical thinking, structured office management, and modern digital tools meet — helping teams make faster, evidence-based decisions while continuing to grow into a senior business analyst or operations management role.</p>
+        <div style="margin-top:1.4rem;">
+          <button class="btn btn-outline btn-sm" data-open-tab="about">Edit this section</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Resume / CV -->
+<section class="section" id="resume">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">File 02 — Curriculum Vitae</span>
+      <h2>Résumé</h2>
+      <p class="sub">Education, work experience, and a printable summary — kept current in one place.</p>
+    </div>
+
+    <div class="cv-actions">
+      <button class="btn" id="downloadCvBtn">⬇ Download CV</button>
+      <button class="btn btn-outline" id="printCvBtn">🖨 Print CV</button>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-bottom:3rem;">
+      <div>
+        <h3 style="font-family:var(--font-mono);text-transform:uppercase;font-size:.85rem;letter-spacing:.06em;color:var(--accent-deep);margin-bottom:1.4rem;">Education</h3>
+        <div class="timeline" id="educationTimeline"></div>
+        <button class="btn btn-outline btn-sm" style="margin-top:1.4rem;" data-open-tab="education">+ Manage education</button>
+      </div>
+      <div>
+        <h3 style="font-family:var(--font-mono);text-transform:uppercase;font-size:.85rem;letter-spacing:.06em;color:var(--accent-deep);margin-bottom:1.4rem;">Work Experience</h3>
+        <div class="timeline" id="experienceTimeline"></div>
+        <button class="btn btn-outline btn-sm" style="margin-top:1.4rem;" data-open-tab="experience">+ Manage experience</button>
+      </div>
+    </div>
+
+    <!-- Printable CV sheet -->
+    <div class="cv-sheet" id="cvSheet"></div>
+  </div>
+</section>
+
+<!-- Skills -->
+<section class="section" id="skills">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">File 03 — Capability</span>
+      <h2>Skills</h2>
+      <p class="sub">Grouped by domain, rated by working proficiency.</p>
+    </div>
+    <div class="skills-groups" id="skillsGroups"></div>
+    <button class="btn btn-outline btn-sm" style="margin-top:1.6rem;" data-open-tab="skills">+ Manage skills</button>
+  </div>
+</section>
+
+<!-- Certifications -->
+<section class="section" id="certifications">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">File 04 — Verified</span>
+      <h2>Professional Training &amp; Certifications</h2>
+    </div>
+    <div class="cert-grid" id="certGrid"></div>
+    <button class="btn btn-outline btn-sm" style="margin-top:1.6rem;" data-open-tab="certifications">+ Manage certifications</button>
+  </div>
+</section>
+
+<!-- Projects -->
+<section class="section" id="projects">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">File 05 — Work Samples</span>
+      <h2>Projects &amp; Portfolio</h2>
+    </div>
+    <div class="filter-row" id="projectFilters"></div>
+    <div class="card-grid" id="projectGrid"></div>
+    <button class="btn btn-outline btn-sm" style="margin-top:1.6rem;" data-open-tab="projects">+ Manage projects</button>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">File 06 — Engagements</span>
+      <h2>Services</h2>
+    </div>
+    <div class="svc-grid" id="svcGrid"></div>
+    <button class="btn btn-outline btn-sm" style="margin-top:1.6rem;" data-open-tab="services">+ Manage services</button>
+  </div>
+</section>
+
+<!-- Blog -->
+<section class="section" id="blog">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">File 07 — Journal</span>
+      <h2>Blog &amp; Articles</h2>
+      <p class="sub">Notes on job hunting, data analysis, and productivity from a Dhaka-based desk.</p>
+    </div>
+    <div class="blog-controls">
+      <div class="search-box">🔍 <input type="text" id="blogSearch" placeholder="Search articles…"></div>
+      <div class="filter-row" id="blogFilters"></div>
+    </div>
+    <div class="card-grid" id="blogGrid"></div>
+    <div style="margin-top:1.6rem;display:flex;gap:.8rem;">
+      <button class="btn btn-outline btn-sm" data-open-tab="blog">+ Manage articles</button>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="section" id="contact" style="border-bottom:none;">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">File 08 — Reach Me</span>
+      <h2>Contact</h2>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <ul class="contact-info">
+          <li><div><span class="k">Email</span><span id="contactEmail">rakibul.hasan@example.com</span></div></li>
+          <li><div><span class="k">Phone</span><span id="contactPhone">+880 1XXX-XXXXXX</span></div></li>
+          <li><div><span class="k">Location</span><span id="contactLocation">Dhaka, Bangladesh</span></div></li>
+        </ul>
+        <div class="social-row" id="socialRow"></div>
+      </div>
+      <form id="contactForm">
+        <div class="form-row"><label for="cName">Name</label><input id="cName" required></div>
+        <div class="form-row"><label for="cEmail">Email</label><input id="cEmail" type="email" required></div>
+        <div class="form-row"><label for="cMsg">Message</label><textarea id="cMsg" required></textarea></div>
+        <button class="btn btn-block" type="submit">Send message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-row">
+    <p id="footerName">© <span id="footerYear"></span> Md. Rakibul Hasan. All rights reserved.</p>
+    <div class="footer-links" id="footerSocial"></div>
+  </div>
+</footer>
+
+<!-- Admin FAB -->
+<button class="btn btn-gold admin-fab" id="adminFab">🔒 Edit Website</button>
+
+<!-- Admin Dashboard -->
+<div class="admin-panel" id="adminPanel">
+  <div class="admin-overlay" id="adminOverlay"></div>
+  <div class="admin-body">
+    <button class="icon-btn admin-close" id="adminClose">✕</button>
+    <div class="admin-tabs" id="adminTabs"></div>
+    <div class="admin-content" id="adminContent"></div>
+  </div>
+</div>
+
+<!-- Generic Modal -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modalBody"></div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+/* =====================================================================
+   6. JAVASCRIPT DATA — default sample content
+   ===================================================================== */
+const STORAGE_KEY = 'portfolioData_v1';
+let uidCounter = 1000;
+const uid = () => (uidCounter++).toString(36);
+
+const DEFAULT_DATA = {
+  profile:{
+    name:'Md. Rakibul Hasan',
+    title:'MBA Graduate · Data-Driven Business Analyst · ICT Professional',
+    photo:'',
+    intro:'I turn spreadsheets, SOPs and scattered data into decisions people can act on — combining an MBA in management with an ICT background, hands-on data-analysis practice, and AI-assisted productivity workflows.',
+    about:'I\'m an MBA graduate from Dhaka with a first degree in Information & Communication Technology, giving me an unusual mix of business judgement and technical fluency. Over the last few years I\'ve worked across computer operations, office administration, and reporting roles, and I now focus on data analysis, documentation systems, and light web development — often accelerated with AI productivity tools.',
+    objective:'To contribute to an organisation where analytical thinking, structured office management, and modern digital tools meet — helping teams make faster, evidence-based decisions while continuing to grow into a senior business analyst or operations management role.',
+    email:'rakibul.hasan@example.com',
+    phone:'+880 1XXX-XXXXXX',
+    location:'Dhaka, Bangladesh',
+    linkedin:'https://linkedin.com/in/example',
+    facebook:'https://facebook.com/example',
+    github:'https://github.com/example',
+    website:''
+  },
+  education:[
+    {id:uid(),degree:'Master of Business Administration (MBA), Human Resource Management',institution:'University of Dhaka',location:'Dhaka, Bangladesh',start:'2022',end:'2024',description:'Coursework in organisational behaviour, HR analytics, strategic management and business communication.'},
+    {id:uid(),degree:'B.Sc. in Information & Communication Technology',institution:'Comilla University',location:'Comilla, Bangladesh',start:'2017',end:'2021',description:'Focus on database systems, networking fundamentals, and introductory software development.'},
+    {id:uid(),degree:'Higher Secondary Certificate (Business Studies)',institution:'Notre Dame College',location:'Dhaka, Bangladesh',start:'2015',end:'2017',description:'Concentration in accounting, business organisation and management.'}
+  ],
+  experience:[
+    {id:uid(),role:'Business Analyst / Office Executive',company:'Meridian Trading Ltd.',location:'Dhaka, Bangladesh',start:'Jan 2023',end:'Present',description:'Own weekly sales and inventory reporting, build Excel/Power BI dashboards for management review, and maintain SOP documentation for the operations team.'},
+    {id:uid(),role:'Computer Operator',company:'Uttara Regional Office, Karma Sangsthan Bank',location:'Dhaka, Bangladesh',start:'Jun 2021',end:'Dec 2022',description:'Handled data entry, record digitisation, and day-to-day office documentation for a 20-person branch.'}
+  ],
+  skills:[
+    {id:uid(),name:'Microsoft Excel',level:92,category:'Office & Productivity'},
+    {id:uid(),name:'Microsoft Word & PowerPoint',level:90,category:'Office & Productivity'},
+    {id:uid(),name:'Google Workspace',level:85,category:'Office & Productivity'},
+    {id:uid(),name:'Data Analysis & Reporting',level:82,category:'Data & Analytics'},
+    {id:uid(),name:'Power BI',level:70,category:'Data & Analytics'},
+    {id:uid(),name:'SQL Basics',level:60,category:'Data & Analytics'},
+    {id:uid(),name:'AI Productivity Tools (ChatGPT, Claude, Copilot)',level:88,category:'AI & Productivity'},
+    {id:uid(),name:'Prompt-assisted Workflow Design',level:75,category:'AI & Productivity'},
+    {id:uid(),name:'HTML / CSS / JavaScript',level:65,category:'Web Development'},
+    {id:uid(),name:'Communication & Stakeholder Management',level:88,category:'Soft Skills'}
+  ],
+  certifications:[
+    {id:uid(),name:'Google Data Analytics Professional Certificate',issuer:'Google / Coursera',date:'2024',credentialUrl:''},
+    {id:uid(),name:'Microsoft Office Specialist (Excel)',issuer:'Microsoft',date:'2022',credentialUrl:''},
+    {id:uid(),name:'Responsive Web Design',issuer:'freeCodeCamp',date:'2023',credentialUrl:''},
+    {id:uid(),name:'HR Analytics Fundamentals',issuer:'LinkedIn Learning',date:'2023',credentialUrl:''}
+  ],
+  projects:[
+    {id:uid(),title:'Personal Portfolio & CV Website',description:'A self-editable single-page portfolio and blog built with plain HTML, CSS and JavaScript, with a built-in admin dashboard backed by localStorage.',tech:['HTML','CSS','JavaScript'],category:'Web Development',liveUrl:'',codeUrl:'',featured:true},
+    {id:uid(),title:'Regional Sales Dashboard',description:'An Excel and Power BI dashboard tracking monthly sales, stock levels and regional performance for a trading company.',tech:['Excel','Power BI'],category:'Data Analysis',liveUrl:'',codeUrl:''},
+    {id:uid(),title:'Office Inventory Tracker',description:'A lightweight browser-based inventory tracker for a small office, storing stock records locally with add/edit/delete support.',tech:['JavaScript','localStorage'],category:'Web Development',liveUrl:'',codeUrl:''},
+    {id:uid(),title:'SOP Documentation Portal',description:'Reorganised scattered internal procedures into a searchable digital SOP library used across three departments.',tech:['Documentation','Process Design'],category:'Office & Admin',liveUrl:'',codeUrl:''}
+  ],
+  services:[
+    {id:uid(),title:'Data Entry & Analysis',description:'Clean, structure and analyse business data in Excel or Power BI, with clear summary reporting.'},
+    {id:uid(),title:'Office Documentation & Reporting',description:'Build SOPs, report templates and record-keeping systems that stay usable as a team grows.'},
+    {id:uid(),title:'AI-Powered Productivity Consulting',description:'Set up practical ChatGPT/Claude-assisted workflows for reporting, drafting and research.'},
+    {id:uid(),title:'Basic Web Development',description:'Simple, fast, self-hosted websites and portfolio pages — no unnecessary frameworks.'}
+  ],
+  blog:[
+    {id:uid(),title:'What an MBA Actually Changed About How I Work',image:'',category:'Career',date:'2025-03-14',excerpt:'Two years after finishing my MBA, here is what genuinely changed in how I approach problems at work.',content:'<p>Two years after finishing my MBA, here is what genuinely changed in how I approach problems at work — and what didn\'t.</p><h2>Structure over instinct</h2><p>The biggest shift was learning to frame a problem before reaching for a solution.</p><ul><li>Define the decision being made</li><li>List the constraints</li><li>Only then look at options</li></ul><p>It sounds obvious, but most office friction comes from skipping this step.</p>'},
+    {id:uid(),title:'Five AI Habits That Save Me an Hour a Day',image:'',category:'Productivity',date:'2025-05-02',excerpt:'Small, repeatable ways I use AI tools for drafting, summarising and reporting at work.',content:'<p>Small, repeatable ways I use AI tools for drafting, summarising and reporting at work.</p><h2>1. First-draft everything</h2><p>Never start a report from a blank page — start from an AI first draft and edit down.</p><h2>2. Summarise before meetings</h2><p>Paste long email threads in and ask for a three-line summary with open questions.</p>'},
+    {id:uid(),title:'A Beginner\'s Path Into Data Analysis From an Office Job',image:'',category:'Data Analysis',date:'2025-06-20',excerpt:'How I moved from manual spreadsheets to dashboards, without a technical degree.',content:'<p>How I moved from manual spreadsheets to dashboards, without a technical degree.</p><h2>Start where you already are</h2><p>My first "dashboard" was just a well-organised Excel sheet with a few pivot tables.</p><p>From there, Power BI was a natural next step because it reused the same thinking.</p>'}
+  ],
+  settings:{
+    theme:'light',
+    adminPassword:'admin123',
+    cloud:{
+      provider:'none', // 'none' | 'firebase' | 'gdrive'
+      autoSync:false,
+      firebase:{apiKey:'', authDomain:'', projectId:''},
+      gdrive:{clientId:'', apiKey:'', fileId:''}
+    }
+  }
+};
+
+/* =====================================================================
+   7. LOCALSTORAGE FUNCTIONS
+   ===================================================================== */
+function loadData(){
+  try{
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if(!raw) return structuredClone(DEFAULT_DATA);
+    const parsed = JSON.parse(raw);
+    // shallow-merge to protect against missing keys after future updates
+    const merged = Object.assign(structuredClone(DEFAULT_DATA), parsed);
+    // deep-merge settings/cloud so older saved data doesn't lose new default sub-fields
+    merged.settings = Object.assign(structuredClone(DEFAULT_DATA.settings), parsed.settings||{});
+    merged.settings.cloud = Object.assign(structuredClone(DEFAULT_DATA.settings.cloud), (parsed.settings||{}).cloud||{});
+    merged.settings.cloud.firebase = Object.assign(structuredClone(DEFAULT_DATA.settings.cloud.firebase), ((parsed.settings||{}).cloud||{}).firebase||{});
+    merged.settings.cloud.gdrive = Object.assign(structuredClone(DEFAULT_DATA.settings.cloud.gdrive), ((parsed.settings||{}).cloud||{}).gdrive||{});
+    return merged;
+  }catch(e){
+    console.error('Failed to load data, falling back to defaults', e);
+    return structuredClone(DEFAULT_DATA);
+  }
+}
+function saveData(){
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  if(state.settings.cloud && state.settings.cloud.autoSync && state.settings.cloud.provider!=='none'){
+    cloudPush(true);
+  }
+}
+function resetData(){
+  if(!confirm('Reset all website content back to the original sample data? This cannot be undone.')) return;
+  localStorage.removeItem(STORAGE_KEY);
+  state = structuredClone(DEFAULT_DATA);
+  saveData();
+  renderAll();
+  showToast('Content reset to defaults');
+  renderAdminTab(currentAdminTab);
+}
+function exportData(){
+  const blob = new Blob([JSON.stringify(state,null,2)],{type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'portfolio-data.json'; a.click();
+  URL.revokeObjectURL(url);
+  showToast('Data exported');
+}
+function importData(file){
+  const reader = new FileReader();
+  reader.onload = e=>{
+    try{
+      const parsed = JSON.parse(e.target.result);
+      state = Object.assign(structuredClone(DEFAULT_DATA), parsed);
+      saveData(); renderAll(); renderAdminTab(currentAdminTab);
+      showToast('Data imported successfully');
+    }catch(err){ showToast('Import failed: invalid JSON file'); }
+  };
+  reader.readAsText(file);
+}
+
+/* =====================================================================
+   7b. CLOUD SYNC — optional free-tier backends (Firebase / Google Drive)
+   Both are opt-in via Settings → Cloud Sync. Neither is configured by
+   default, so the site works purely on localStorage until you add your
+   own project credentials. All calls are wrapped in try/catch so a
+   missing or misconfigured backend never breaks the page.
+   ===================================================================== */
+function loadScriptOnce(src){
+  return new Promise((resolve, reject)=>{
+    if(document.querySelector(`script[data-src="${src}"]`)){ resolve(); return; }
+    const s = document.createElement('script');
+    s.src = src; s.dataset.src = src;
+    s.onload = ()=>resolve();
+    s.onerror = ()=>reject(new Error('Failed to load '+src));
+    document.head.appendChild(s);
+  });
+}
+
+/* ---------- Firebase (Firestore) ---------- */
+let firebaseApp = null, firestoreDb = null;
+const CLOUD_COLLECTION = 'portfolio_site', CLOUD_DOC = 'main';
+
+async function connectFirebase(){
+  const cfg = state.settings.cloud.firebase;
+  if(!cfg.apiKey || !cfg.projectId){ showToast('Add your Firebase API key and Project ID first'); return false; }
+  try{
+    await loadScriptOnce('https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js');
+    await loadScriptOnce('https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js');
+    if(!firebaseApp){
+      firebaseApp = firebase.initializeApp({apiKey:cfg.apiKey, authDomain:cfg.authDomain, projectId:cfg.projectId});
+    }
+    firestoreDb = firebase.firestore();
+    return true;
+  }catch(e){ console.error(e); showToast('Could not load Firebase — check your network/settings'); return false; }
+}
+async function pushToFirebase(silent){
+  if(!(await connectFirebase())) return;
+  try{
+    await firestoreDb.collection(CLOUD_COLLECTION).doc(CLOUD_DOC).set(state);
+    if(!silent) showToast('Pushed your data to Firebase');
+  }catch(e){ console.error(e); if(!silent) showToast('Firebase push failed — check your Firestore rules'); }
+}
+async function pullFromFirebase(silent){
+  if(!(await connectFirebase())) return;
+  try{
+    const doc = await firestoreDb.collection(CLOUD_COLLECTION).doc(CLOUD_DOC).get();
+    if(doc.exists){
+      state = Object.assign(structuredClone(DEFAULT_DATA), doc.data());
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      renderAll();
+      if(!silent) showToast('Pulled the latest data from Firebase');
+    } else if(!silent){ showToast('No data in Firebase yet — push first'); }
+  }catch(e){ console.error(e); if(!silent) showToast('Firebase pull failed — check your Firestore rules'); }
+}
+
+/* ---------- Google Drive ---------- */
+let gisTokenClient = null, gDriveAccessToken = null;
+async function initGoogleAuth(){
+  const cfg = state.settings.cloud.gdrive;
+  if(!cfg.clientId){ showToast('Add your Google OAuth Client ID first'); return false; }
+  try{
+    await loadScriptOnce('https://accounts.google.com/gsi/client');
+    gisTokenClient = google.accounts.oauth2.initTokenClient({
+      client_id: cfg.clientId,
+      scope: 'https://www.googleapis.com/auth/drive.file',
+      callback: ''
+    });
+    return true;
+  }catch(e){ console.error(e); showToast('Could not load Google sign-in — check your network/settings'); return false; }
+}
+function requestGoogleToken(){
+  return new Promise(async (resolve, reject)=>{
+    if(!(await initGoogleAuth())) return reject(new Error('not configured'));
+    gisTokenClient.callback = resp=>{
+      if(resp.error) return reject(resp);
+      gDriveAccessToken = resp.access_token;
+      resolve(resp.access_token);
+    };
+    gisTokenClient.requestAccessToken({prompt: gDriveAccessToken ? '' : 'consent'});
+  });
+}
+async function signInGoogleDrive(){
+  try{
+    await requestGoogleToken();
+    showToast('Signed in to Google Drive for this browser session');
+    renderAdminTab('settings');
+  }catch(e){ console.error(e); showToast('Google sign-in failed or was cancelled'); }
+}
+async function pushToDrive(silent){
+  const cfg = state.settings.cloud.gdrive;
+  if(!cfg.apiKey){ if(!silent) showToast('Add your Google API key first'); return; }
+  try{
+    if(!gDriveAccessToken) await requestGoogleToken();
+    const boundary = 'pfsite' + Date.now();
+    const metadata = {name:'portfolio-data.json', mimeType:'application/json'};
+    const bodyParts = [`--${boundary}\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n`];
+    const isNew = !cfg.fileId;
+    const metaJson = isNew ? JSON.stringify(metadata) : '{}';
+    const body =
+      `--${boundary}\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n${metaJson}\r\n`+
+      `--${boundary}\r\nContent-Type: application/json\r\n\r\n${JSON.stringify(state)}\r\n--${boundary}--`;
+    const url = isNew
+      ? 'https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart'
+      : `https://www.googleapis.com/upload/drive/v3/files/${cfg.fileId}?uploadType=multipart`;
+    const res = await fetch(url, {
+      method: isNew ? 'POST' : 'PATCH',
+      headers:{Authorization:`Bearer ${gDriveAccessToken}`, 'Content-Type':`multipart/related; boundary=${boundary}`},
+      body
+    });
+    const json = await res.json();
+    if(!res.ok) throw new Error((json.error && json.error.message) || 'Upload failed');
+    if(isNew){
+      cfg.fileId = json.id;
+      // make the file publicly readable so the live site can show it without sign-in
+      await fetch(`https://www.googleapis.com/drive/v3/files/${json.id}/permissions`, {
+        method:'POST',
+        headers:{Authorization:`Bearer ${gDriveAccessToken}`, 'Content-Type':'application/json'},
+        body: JSON.stringify({role:'reader', type:'anyone'})
+      });
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    }
+    if(!silent) showToast('Pushed your data to Google Drive');
+  }catch(e){ console.error(e); if(!silent) showToast('Google Drive push failed: '+e.message); }
+}
+async function pullFromDrive(silent){
+  const cfg = state.settings.cloud.gdrive;
+  if(!cfg.fileId || !cfg.apiKey){ if(!silent) showToast('No Google Drive file connected yet — push first'); return; }
+  try{
+    const res = await fetch(`https://www.googleapis.com/drive/v3/files/${cfg.fileId}?alt=media&key=${cfg.apiKey}`);
+    if(!res.ok) throw new Error('Fetch failed ('+res.status+')');
+    const data = await res.json();
+    state = Object.assign(structuredClone(DEFAULT_DATA), data);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    renderAll();
+    if(!silent) showToast('Pulled the latest data from Google Drive');
+  }catch(e){ console.error(e); if(!silent) showToast('Google Drive pull failed'); }
+}
+
+/* ---------- Generic dispatch used elsewhere in the app ---------- */
+function cloudPush(silent){
+  const p = state.settings.cloud.provider;
+  if(p==='firebase') pushToFirebase(silent);
+  else if(p==='gdrive') pushToDrive(silent);
+}
+function cloudPull(silent){
+  const p = state.settings.cloud.provider;
+  if(p==='firebase') return pullFromFirebase(silent);
+  if(p==='gdrive') return pullFromDrive(silent);
+  return Promise.resolve();
+}
+
+let state = loadData();
+
+/* =====================================================================
+   5. (JS) HELPERS
+   ===================================================================== */
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(showToast._tm);
+  showToast._tm = setTimeout(()=>t.classList.remove('show'), 2400);
+}
+function esc(str){
+  return (str||'').replace(/[&<>"']/g, s=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]));
+}
+function fileToDataUrl(file, cb){
+  const reader = new FileReader();
+  reader.onload = e=>cb(e.target.result);
+  reader.readAsDataURL(file);
+}
+function initials(name){
+  return (name||'').split(' ').filter(Boolean).slice(0,2).map(w=>w[0].toUpperCase()).join('');
+}
+function placeholderPhoto(name){
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="280" height="340"><rect width="100%" height="100%" fill="#1F5C56"/><text x="50%" y="52%" font-family="Fraunces,serif" font-size="72" fill="#F1F0E8" text-anchor="middle" dominant-baseline="middle">${initials(name)}</text></svg>`;
+  return 'data:image/svg+xml;utf8,'+encodeURIComponent(svg);
+}
+
+/* =====================================================================
+   8. RENDER FUNCTIONS
+   ===================================================================== */
+function renderAll(){
+  renderProfile();
+  renderEducation();
+  renderExperience();
+  renderSkills();
+  renderCertifications();
+  renderProjects();
+  renderServices();
+  renderCvSheet();
+  renderBlog();
+  renderContact();
+  renderFooter();
+}
+
+function renderProfile(){
+  const p = state.profile;
+  document.getElementById('heroName').innerHTML = nameAsMarkup(p.name);
+  document.getElementById('heroTitle').textContent = p.title;
+  document.getElementById('heroIntro').textContent = p.intro;
+  document.getElementById('metaLocation').textContent = p.location;
+  document.getElementById('metaEmail').textContent = p.email;
+  document.getElementById('metaPhone').textContent = p.phone;
+  document.getElementById('heroPhoto').src = p.photo || placeholderPhoto(p.name);
+  document.getElementById('aboutText').textContent = p.about;
+  document.getElementById('objectiveText2').textContent = p.objective;
+  document.title = p.name + ' — Portfolio & CV';
+}
+function nameAsMarkup(name){
+  const parts = (name||'').trim().split(' ');
+  if(parts.length<2) return esc(name);
+  const last = parts.pop();
+  return esc(parts.join(' ')) + ' <em>' + esc(last) + '</em>';
+}
+
+function renderEducation(){
+  const el = document.getElementById('educationTimeline');
+  el.innerHTML = state.education.map(ed=>`
+    <div class="tl-item">
+      <span class="tl-date">${esc(ed.start)} — ${esc(ed.end)}</span>
+      <h3>${esc(ed.degree)}</h3>
+      <div class="tl-org">${esc(ed.institution)}${ed.location? ' · '+esc(ed.location):''}</div>
+      <p>${esc(ed.description)}</p>
+    </div>`).join('') || emptyState('No education entries yet.');
+}
+function renderExperience(){
+  const el = document.getElementById('experienceTimeline');
+  el.innerHTML = state.experience.map(ex=>`
+    <div class="tl-item">
+      <span class="tl-date">${esc(ex.start)} — ${esc(ex.end)}</span>
+      <h3>${esc(ex.role)}</h3>
+      <div class="tl-org">${esc(ex.company)}${ex.location? ' · '+esc(ex.location):''}</div>
+      <p>${esc(ex.description)}</p>
+    </div>`).join('') || emptyState('No experience entries yet.');
+}
+function emptyState(msg){ return `<p style="font-style:italic;">${msg}</p>`; }
+
+function renderSkills(){
+  const groups = {};
+  state.skills.forEach(s=>{ (groups[s.category] ||= []).push(s); });
+  const el = document.getElementById('skillsGroups');
+  el.innerHTML = Object.entries(groups).map(([cat,items])=>`
+    <div class="skill-cat">
+      <h3>${esc(cat)}</h3>
+      ${items.map(s=>`
+        <div class="skill-row">
+          <div class="top"><span>${esc(s.name)}</span><span>${s.level}%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-level="${s.level}"></div></div>
+        </div>`).join('')}
+    </div>`).join('') || emptyState('No skills added yet.');
+  requestAnimationFrame(()=>{
+    document.querySelectorAll('.skill-fill').forEach(f=>{ f.style.width = f.dataset.level + '%'; });
+  });
+}
+
+function renderCertifications(){
+  const el = document.getElementById('certGrid');
+  el.innerHTML = state.certifications.map(c=>`
+    <div class="cert-card">
+      <div class="cert-badge">✓</div>
+      <div>
+        <h4>${esc(c.name)}</h4>
+        <div class="issuer">${esc(c.issuer)}</div>
+        <span class="date">${esc(c.date)}</span>
+      </div>
+    </div>`).join('') || emptyState('No certifications added yet.');
+}
+
+let activeProjectFilter = 'All';
+function renderProjects(){
+  const cats = ['All', ...new Set(state.projects.map(p=>p.category).filter(Boolean))];
+  document.getElementById('projectFilters').innerHTML = cats.map(c=>
+    `<button class="chip ${c===activeProjectFilter?'active':''}" data-filter="${esc(c)}">${esc(c)}</button>`).join('');
+  const list = state.projects.filter(p=> activeProjectFilter==='All' || p.category===activeProjectFilter);
+  document.getElementById('projectGrid').innerHTML = list.map(p=>`
+    <div class="proj-card">
+      <div class="proj-thumb">${esc(initials(p.title))}</div>
+      <div class="proj-body">
+        <h3>${esc(p.title)}</h3>
+        <p>${esc(p.description)}</p>
+        <div class="tech-row">${(p.tech||[]).map(t=>`<span class="tech-tag">${esc(t)}</span>`).join('')}</div>
+        <div class="proj-links">
+          ${p.liveUrl?`<a href="${esc(p.liveUrl)}" target="_blank" rel="noopener">Live ↗</a>`:''}
+          ${p.codeUrl?`<a href="${esc(p.codeUrl)}" target="_blank" rel="noopener">Code ↗</a>`:''}
+        </div>
+      </div>
+    </div>`).join('') || emptyState('No projects match this filter.');
+  document.querySelectorAll('#projectFilters .chip').forEach(btn=>{
+    btn.addEventListener('click', ()=>{ activeProjectFilter = btn.dataset.filter; renderProjects(); });
+  });
+}
+
+function renderServices(){
+  document.getElementById('svcGrid').innerHTML = state.services.map((s,i)=>`
+    <div class="svc-card">
+      <span class="num">${String(i+1).padStart(2,'0')}</span>
+      <h3>${esc(s.title)}</h3>
+      <p>${esc(s.description)}</p>
+    </div>`).join('') || emptyState('No services added yet.');
+}
+
+function renderCvSheet(){
+  const p = state.profile;
+  const el = document.getElementById('cvSheet');
+  el.innerHTML = `
+    <h2 style="margin-bottom:.1em;">${esc(p.name)}</h2>
+    <p style="margin-bottom:1.4em;">${esc(p.title)} — ${esc(p.location)} — ${esc(p.email)} — ${esc(p.phone)}</p>
+    <h3>Career Objective</h3><p>${esc(p.objective)}</p>
+    <h3>Education</h3>
+    ${state.education.map(ed=>`<div class="cv-entry"><div class="row"><b>${esc(ed.degree)}</b><span>${esc(ed.start)}–${esc(ed.end)}</span></div><p>${esc(ed.institution)}${ed.location?', '+esc(ed.location):''}</p></div>`).join('')}
+    <h3>Work Experience</h3>
+    ${state.experience.map(ex=>`<div class="cv-entry"><div class="row"><b>${esc(ex.role)}</b><span>${esc(ex.start)}–${esc(ex.end)}</span></div><p>${esc(ex.company)}${ex.location?', '+esc(ex.location):''} — ${esc(ex.description)}</p></div>`).join('')}
+    <h3>Skills</h3><p>${state.skills.map(s=>esc(s.name)).join(' · ')}</p>
+    <h3>Certifications</h3><p>${state.certifications.map(c=>esc(c.name)+' ('+esc(c.date)+')').join(' · ')}</p>
+  `;
+}
+
+let activeBlogFilter = 'All';
+let blogSearchQuery = '';
+function renderBlog(){
+  const cats = ['All', ...new Set(state.blog.map(b=>b.category).filter(Boolean))];
+  document.getElementById('blogFilters').innerHTML = cats.map(c=>
+    `<button class="chip ${c===activeBlogFilter?'active':''}" data-bfilter="${esc(c)}">${esc(c)}</button>`).join('');
+  let list = state.blog.slice().sort((a,b)=> new Date(b.date)-new Date(a.date));
+  if(activeBlogFilter!=='All') list = list.filter(b=>b.category===activeBlogFilter);
+  if(blogSearchQuery) list = list.filter(b=> (b.title+b.excerpt).toLowerCase().includes(blogSearchQuery.toLowerCase()));
+  document.getElementById('blogGrid').innerHTML = list.map(b=>`
+    <div class="blog-card" data-article="${b.id}">
+      ${b.image? `<div class="blog-thumb" style="background-image:url('${esc(b.image)}');background-size:cover;background-position:center;"></div>` : `<div class="blog-thumb">${esc(initials(b.title))}</div>`}
+      <div class="blog-body">
+        <span class="blog-cat">${esc(b.category)}</span>
+        <h3>${esc(b.title)}</h3>
+        <p>${esc(b.excerpt)}</p>
+        <span class="blog-date">${esc(b.date)}</span>
+      </div>
+    </div>`).join('') || emptyState('No articles match your search.');
+  document.querySelectorAll('#blogFilters .chip').forEach(btn=>{
+    btn.addEventListener('click', ()=>{ activeBlogFilter = btn.dataset.bfilter; renderBlog(); });
+  });
+  document.querySelectorAll('.blog-card').forEach(card=>{
+    card.addEventListener('click', ()=> openArticle(card.dataset.article));
+  });
+}
+
+function openArticle(id){
+  const b = state.blog.find(x=>x.id===id);
+  if(!b) return;
+  openModal(`
+    <div class="article-hero"></div>
+    <span class="blog-cat">${esc(b.category)} · ${esc(b.date)}</span>
+    <h3 style="margin-top:.3em;">${esc(b.title)}</h3>
+    <div class="article-content">${b.content}</div>
+    <div class="modal-actions"><button class="btn btn-outline" data-close-modal>Close</button></div>
+  `);
+}
+
+function renderContact(){
+  const p = state.profile;
+  document.getElementById('contactEmail').textContent = p.email;
+  document.getElementById('contactPhone').textContent = p.phone;
+  document.getElementById('contactLocation').textContent = p.location;
+  const socials = socialList(p);
+  document.getElementById('socialRow').innerHTML = socials.map(s=>`<a class="icon-btn" href="${esc(s.url)}" target="_blank" rel="noopener" title="${esc(s.label)}">${s.icon}</a>`).join('');
+}
+function socialList(p){
+  const list = [];
+  if(p.linkedin) list.push({label:'LinkedIn',url:p.linkedin,icon:'in'});
+  if(p.github) list.push({label:'GitHub',url:p.github,icon:'⌥'});
+  if(p.facebook) list.push({label:'Facebook',url:p.facebook,icon:'f'});
+  if(p.website) list.push({label:'Website',url:p.website,icon:'🌐'});
+  return list;
+}
+function renderFooter(){
+  document.getElementById('footerName').innerHTML = `© <span id="footerYear">${new Date().getFullYear()}</span> ${esc(state.profile.name)}. All rights reserved.`;
+  document.getElementById('footerSocial').innerHTML = socialList(state.profile).map(s=>`<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)}</a>`).join('');
+}
+
+/* =====================================================================
+   9. CRUD FUNCTIONS  (generic, config-driven)
+   ===================================================================== */
+const ENTITY_CONFIG = {
+  education:{
+    label:'Education', renderAfter:[renderEducation, renderCvSheet],
+    fields:[
+      {key:'degree',label:'Degree / Program',type:'text',required:true},
+      {key:'institution',label:'Institution',type:'text',required:true},
+      {key:'location',label:'Location',type:'text'},
+      {key:'start',label:'Start Year',type:'text'},
+      {key:'end',label:'End Year',type:'text'},
+      {key:'description',label:'Description',type:'textarea'}
+    ],
+    listTitle:e=>e.degree, listSub:e=>`${e.institution} · ${e.start}–${e.end}`
+  },
+  experience:{
+    label:'Experience', renderAfter:[renderExperience, renderCvSheet],
+    fields:[
+      {key:'role',label:'Job Title',type:'text',required:true},
+      {key:'company',label:'Company',type:'text',required:true},
+      {key:'location',label:'Location',type:'text'},
+      {key:'start',label:'Start',type:'text'},
+      {key:'end',label:'End',type:'text'},
+      {key:'description',label:'Description',type:'textarea'}
+    ],
+    listTitle:e=>e.role, listSub:e=>`${e.company} · ${e.start}–${e.end}`
+  },
+  skills:{
+    label:'Skills', renderAfter:[renderSkills, renderCvSheet],
+    fields:[
+      {key:'name',label:'Skill Name',type:'text',required:true},
+      {key:'category',label:'Category',type:'text',required:true},
+      {key:'level',label:'Proficiency (0-100)',type:'number'}
+    ],
+    listTitle:s=>s.name, listSub:s=>`${s.category} · ${s.level}%`
+  },
+  certifications:{
+    label:'Certifications', renderAfter:[renderCertifications, renderCvSheet],
+    fields:[
+      {key:'name',label:'Certification Name',type:'text',required:true},
+      {key:'issuer',label:'Issuing Organisation',type:'text'},
+      {key:'date',label:'Date',type:'text'},
+      {key:'credentialUrl',label:'Credential URL',type:'text'}
+    ],
+    listTitle:c=>c.name, listSub:c=>`${c.issuer} · ${c.date}`
+  },
+  projects:{
+    label:'Projects', renderAfter:[renderProjects],
+    fields:[
+      {key:'title',label:'Project Title',type:'text',required:true},
+      {key:'category',label:'Category',type:'text'},
+      {key:'description',label:'Description',type:'textarea'},
+      {key:'tech',label:'Technologies (comma separated)',type:'text',isList:true},
+      {key:'liveUrl',label:'Live URL',type:'text'},
+      {key:'codeUrl',label:'Code URL',type:'text'}
+    ],
+    listTitle:p=>p.title, listSub:p=>p.category||''
+  },
+  services:{
+    label:'Services', renderAfter:[renderServices],
+    fields:[
+      {key:'title',label:'Service Title',type:'text',required:true},
+      {key:'description',label:'Description',type:'textarea'}
+    ],
+    listTitle:s=>s.title, listSub:s=>''
+  }
+};
+
+function openEntityForm(entityKey, id){
+  const cfg = ENTITY_CONFIG[entityKey];
+  const isEdit = !!id;
+  const item = isEdit ? state[entityKey].find(x=>x.id===id) : {};
+  const fieldsHtml = cfg.fields.map(f=>{
+    let val = item[f.key];
+    if(f.isList && Array.isArray(val)) val = val.join(', ');
+    if(f.type==='textarea'){
+      return `<div class="form-row"><label>${esc(f.label)}</label><textarea data-field="${f.key}">${esc(val||'')}</textarea></div>`;
+    }
+    return `<div class="form-row"><label>${esc(f.label)}</label><input data-field="${f.key}" type="${f.type==='number'?'number':'text'}" value="${esc(val!=null?val:'')}" ${f.required?'required':''}></div>`;
+  }).join('');
+  openModal(`
+    <h3>${isEdit?'Edit':'Add'} ${cfg.label.slice(0,-1) || cfg.label}</h3>
+    <form id="entityForm">${fieldsHtml}
+      <div class="modal-actions">
+        <button type="button" class="btn btn-outline" data-close-modal>Cancel</button>
+        <button type="submit" class="btn">Save</button>
+      </div>
+    </form>
+  `);
+  document.getElementById('entityForm').addEventListener('submit', ev=>{
+    ev.preventDefault();
+    const data = isEdit ? {...item} : {id:uid()};
+    cfg.fields.forEach(f=>{
+      const input = document.querySelector(`#entityForm [data-field="${f.key}"]`);
+      let v = input.value;
+      if(f.type==='number') v = Number(v)||0;
+      if(f.isList) v = v.split(',').map(s=>s.trim()).filter(Boolean);
+      data[f.key] = v;
+    });
+    if(isEdit){
+      const idx = state[entityKey].findIndex(x=>x.id===id);
+      state[entityKey][idx] = data;
+    } else {
+      state[entityKey].push(data);
+    }
+    saveData();
+    cfg.renderAfter.forEach(fn=>fn());
+    renderAdminTab(entityKey);
+    closeModal();
+    showToast(isEdit? `${cfg.label.slice(0,-1)} updated` : `${cfg.label.slice(0,-1)} added`);
+  });
+}
+function deleteEntity(entityKey, id){
+  const cfg = ENTITY_CONFIG[entityKey];
+  if(!confirm(`Delete this ${cfg.label.toLowerCase().slice(0,-1)}?`)) return;
+  state[entityKey] = state[entityKey].filter(x=>x.id!==id);
+  saveData();
+  cfg.renderAfter.forEach(fn=>fn());
+  renderAdminTab(entityKey);
+  showToast('Deleted');
+}
+
+/* =====================================================================
+   10. BLOG FUNCTIONS
+   ===================================================================== */
+function openBlogForm(id){
+  const isEdit = !!id;
+  const item = isEdit ? state.blog.find(x=>x.id===id) : {title:'',image:'',category:'',date:new Date().toISOString().slice(0,10),excerpt:'',content:''};
+  openModal(`
+    <h3>${isEdit?'Edit':'New'} Article</h3>
+    <form id="blogForm">
+      <div class="form-row"><label>Title</label><input data-field="title" value="${esc(item.title)}" required></div>
+      <div class="form-row"><label>Category</label><input data-field="category" value="${esc(item.category)}"></div>
+      <div class="form-row"><label>Publication Date</label><input type="date" data-field="date" value="${esc(item.date)}"></div>
+      <div class="form-row"><label>Featured Image</label><input type="file" id="blogImageInput" accept="image/*">
+        <input type="hidden" data-field="image" value="${esc(item.image)}"></div>
+      <div class="form-row"><label>Short Excerpt</label><textarea data-field="excerpt">${esc(item.excerpt)}</textarea></div>
+      <div class="form-row">
+        <label>Full Content</label>
+        <div class="editor-toolbar">
+          <button type="button" data-cmd="formatBlock" data-val="H2"><b>H2</b></button>
+          <button type="button" data-cmd="formatBlock" data-val="H3"><b>H3</b></button>
+          <button type="button" data-cmd="bold"><b>B</b></button>
+          <button type="button" data-cmd="italic"><i>I</i></button>
+          <button type="button" data-cmd="insertUnorderedList">• List</button>
+          <button type="button" data-cmd="createLink">🔗 Link</button>
+          <button type="button" data-cmd="formatBlock" data-val="P">¶</button>
+        </div>
+        <div class="editor-content" id="blogEditor" contenteditable="true">${item.content}</div>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-outline" data-close-modal>Cancel</button>
+        <button type="submit" class="btn">Save Article</button>
+      </div>
+    </form>
+  `);
+  document.querySelectorAll('#blogForm .editor-toolbar button').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      document.getElementById('blogEditor').focus();
+      const val = btn.dataset.val;
+      if(btn.dataset.cmd==='createLink'){
+        const url = prompt('Link URL:','https://');
+        if(url) document.execCommand('createLink', false, url);
+      } else {
+        document.execCommand(btn.dataset.cmd, false, val || null);
+      }
+    });
+  });
+  document.getElementById('blogImageInput').addEventListener('change', e=>{
+    const file = e.target.files[0];
+    if(file) fileToDataUrl(file, url=>{ document.querySelector('#blogForm [data-field="image"]').value = url; });
+  });
+  document.getElementById('blogForm').addEventListener('submit', ev=>{
+    ev.preventDefault();
+    const data = isEdit ? {...item} : {id:uid()};
+    data.title = document.querySelector('#blogForm [data-field="title"]').value;
+    data.category = document.querySelector('#blogForm [data-field="category"]').value;
+    data.date = document.querySelector('#blogForm [data-field="date"]').value;
+    data.image = document.querySelector('#blogForm [data-field="image"]').value;
+    data.excerpt = document.querySelector('#blogForm [data-field="excerpt"]').value;
+    data.content = document.getElementById('blogEditor').innerHTML;
+    if(isEdit){
+      const idx = state.blog.findIndex(x=>x.id===id);
+      state.blog[idx] = data;
+    } else {
+      state.blog.push(data);
+    }
+    saveData(); renderBlog(); renderAdminTab('blog'); closeModal();
+    showToast(isEdit?'Article updated':'Article published');
+  });
+}
+function deleteBlog(id){
+  if(!confirm('Delete this article?')) return;
+  state.blog = state.blog.filter(x=>x.id!==id);
+  saveData(); renderBlog(); renderAdminTab('blog');
+  showToast('Article deleted');
+}
+
+/* =====================================================================
+   11. ADMIN DASHBOARD FUNCTIONS
+   ===================================================================== */
+const ADMIN_TABS = ['profile','about','education','experience','skills','certifications','projects','services','blog','social','settings'];
+let currentAdminTab = 'profile';
+
+function renderAdminTabsNav(){
+  document.getElementById('adminTabs').innerHTML = ADMIN_TABS.map(t=>
+    `<button data-tab="${t}" class="${t===currentAdminTab?'active':''}">${t}</button>`).join('');
+  document.querySelectorAll('#adminTabs button').forEach(b=>{
+    b.addEventListener('click', ()=>{ currentAdminTab = b.dataset.tab; renderAdminTabsNav(); renderAdminTab(currentAdminTab); });
+  });
+}
+
+function renderCloudProviderFields(){
+  const holder = document.getElementById('cloudProviderFields');
+  if(!holder) return;
+  const provider = state.settings.cloud.provider;
+  if(provider==='none'){
+    holder.innerHTML = '';
+    return;
+  }
+  if(provider==='firebase'){
+    const cfg = state.settings.cloud.firebase;
+    holder.innerHTML = `
+      <details style="margin:.8rem 0;font-size:.83rem;">
+        <summary style="cursor:pointer;color:var(--accent-deep);">How to get these (free)</summary>
+        <ol style="margin:.6rem 0 0 1.2rem;padding:0;">
+          <li>Go to console.firebase.google.com and create a free project.</li>
+          <li>Build → Firestore Database → Create database (start in test mode).</li>
+          <li>Project settings → General → add a Web App to get your config values below.</li>
+          <li>In Firestore → Rules, allow read (and write, if you want auto-sync) on the <code>portfolio_site</code> collection.</li>
+        </ol>
+      </details>
+      <div class="form-row"><label>API Key</label><input id="fbApiKey" value="${esc(cfg.apiKey)}"></div>
+      <div class="form-row"><label>Auth Domain</label><input id="fbAuthDomain" value="${esc(cfg.authDomain)}" placeholder="your-project.firebaseapp.com"></div>
+      <div class="form-row"><label>Project ID</label><input id="fbProjectId" value="${esc(cfg.projectId)}"></div>
+      <button class="btn btn-outline btn-sm" id="fbSaveBtn" type="button">Save Firebase Settings</button>
+    `;
+    document.getElementById('fbSaveBtn').addEventListener('click', ()=>{
+      cfg.apiKey = document.getElementById('fbApiKey').value.trim();
+      cfg.authDomain = document.getElementById('fbAuthDomain').value.trim();
+      cfg.projectId = document.getElementById('fbProjectId').value.trim();
+      saveData();
+      showToast('Firebase settings saved');
+    });
+  } else if(provider==='gdrive'){
+    const cfg = state.settings.cloud.gdrive;
+    holder.innerHTML = `
+      <details style="margin:.8rem 0;font-size:.83rem;">
+        <summary style="cursor:pointer;color:var(--accent-deep);">How to get these (free)</summary>
+        <ol style="margin:.6rem 0 0 1.2rem;padding:0;">
+          <li>Go to console.cloud.google.com and create a free project.</li>
+          <li>APIs &amp; Services → Library → enable the "Google Drive API".</li>
+          <li>APIs &amp; Services → Credentials → create an <b>OAuth Client ID</b> (type: Web application) and add this page's URL to Authorized JavaScript origins.</li>
+          <li>Also create an <b>API key</b> on the same Credentials page (used for public read access).</li>
+        </ol>
+      </details>
+      <div class="form-row"><label>OAuth Client ID</label><input id="gdClientId" value="${esc(cfg.clientId)}"></div>
+      <div class="form-row"><label>API Key</label><input id="gdApiKey" value="${esc(cfg.apiKey)}"></div>
+      <div class="form-row"><label>File ID (auto-filled after first push)</label><input id="gdFileId" value="${esc(cfg.fileId)}" readonly></div>
+      <div style="display:flex;gap:.6rem;flex-wrap:wrap;">
+        <button class="btn btn-outline btn-sm" id="gdSaveBtn" type="button">Save Google Drive Settings</button>
+        <button class="btn btn-outline btn-sm" id="gdSignInBtn" type="button">Sign in with Google</button>
+      </div>
+      <p style="font-size:.78rem;margin-top:.6rem;">Status: ${gDriveAccessToken ? 'Signed in for this session ✓' : 'Not signed in — sign in before pushing'}</p>
+    `;
+    document.getElementById('gdSaveBtn').addEventListener('click', ()=>{
+      cfg.clientId = document.getElementById('gdClientId').value.trim();
+      cfg.apiKey = document.getElementById('gdApiKey').value.trim();
+      saveData();
+      showToast('Google Drive settings saved');
+    });
+    document.getElementById('gdSignInBtn').addEventListener('click', signInGoogleDrive);
+  }
+}
+
+function renderAdminTab(tab){
+  const el = document.getElementById('adminContent');
+  if(['education','experience','skills','certifications','projects','services'].includes(tab)){
+    const cfg = ENTITY_CONFIG[tab];
+    el.innerHTML = `
+      <h3>${cfg.label}</h3>
+      <button class="btn btn-sm" id="addEntityBtn">+ Add New</button>
+      <div style="margin-top:1rem;">
+        ${state[tab].map(item=>`
+          <div class="list-row">
+            <div class="info"><b>${esc(cfg.listTitle(item))}</b><span>${esc(cfg.listSub(item))}</span></div>
+            <div class="row-actions">
+              <button class="btn btn-outline btn-sm" data-edit="${item.id}">Edit</button>
+              <button class="btn btn-danger btn-sm" data-del="${item.id}">Delete</button>
+            </div>
+          </div>`).join('') || emptyState('Nothing here yet — add your first entry.')}
+      </div>`;
+    document.getElementById('addEntityBtn').addEventListener('click', ()=>openEntityForm(tab));
+    el.querySelectorAll('[data-edit]').forEach(b=>b.addEventListener('click', ()=>openEntityForm(tab, b.dataset.edit)));
+    el.querySelectorAll('[data-del]').forEach(b=>b.addEventListener('click', ()=>deleteEntity(tab, b.dataset.del)));
+    return;
+  }
+  if(tab==='blog'){
+    el.innerHTML = `
+      <h3>Blog Articles</h3>
+      <button class="btn btn-sm" id="addBlogBtn">+ New Article</button>
+      <div style="margin-top:1rem;">
+        ${state.blog.map(b=>`
+          <div class="list-row">
+            <div class="info"><b>${esc(b.title)}</b><span>${esc(b.category)} · ${esc(b.date)}</span></div>
+            <div class="row-actions">
+              <button class="btn btn-outline btn-sm" data-editb="${b.id}">Edit</button>
+              <button class="btn btn-danger btn-sm" data-delb="${b.id}">Delete</button>
+            </div>
+          </div>`).join('') || emptyState('No articles yet.')}
+      </div>`;
+    document.getElementById('addBlogBtn').addEventListener('click', ()=>openBlogForm());
+    el.querySelectorAll('[data-editb]').forEach(b=>b.addEventListener('click', ()=>openBlogForm(b.dataset.editb)));
+    el.querySelectorAll('[data-delb]').forEach(b=>b.addEventListener('click', ()=>deleteBlog(b.dataset.delb)));
+    return;
+  }
+  if(tab==='profile'){
+    const p = state.profile;
+    el.innerHTML = `
+      <h3>Profile</h3>
+      <form id="profileForm">
+        <div class="form-row"><label>Full Name</label><input data-field="name" value="${esc(p.name)}"></div>
+        <div class="form-row"><label>Professional Title</label><input data-field="title" value="${esc(p.title)}"></div>
+        <div class="form-row"><label>Profile Photo</label><input type="file" id="photoInput" accept="image/*">
+          <input type="hidden" data-field="photo" value="${esc(p.photo)}"></div>
+        <div class="form-row"><label>Short Introduction</label><textarea data-field="intro">${esc(p.intro)}</textarea></div>
+        <div class="form-row"><label>Email</label><input data-field="email" value="${esc(p.email)}"></div>
+        <div class="form-row"><label>Phone</label><input data-field="phone" value="${esc(p.phone)}"></div>
+        <div class="form-row"><label>Location</label><input data-field="location" value="${esc(p.location)}"></div>
+        <button class="btn btn-block" type="submit">Save Profile</button>
+      </form>`;
+    document.getElementById('photoInput').addEventListener('change', e=>{
+      const file = e.target.files[0];
+      if(file) fileToDataUrl(file, url=>{ document.querySelector('#profileForm [data-field="photo"]').value = url; });
+    });
+    document.getElementById('profileForm').addEventListener('submit', ev=>{
+      ev.preventDefault();
+      ['name','title','photo','intro','email','phone','location'].forEach(k=>{
+        state.profile[k] = document.querySelector(`#profileForm [data-field="${k}"]`).value;
+      });
+      saveData(); renderProfile(); renderContact(); renderFooter(); renderCvSheet();
+      showToast('Profile updated');
+    });
+    return;
+  }
+  if(tab==='about'){
+    el.innerHTML = `
+      <h3>About &amp; Objective</h3>
+      <form id="aboutForm">
+        <div class="form-row"><label>About Me</label><textarea data-field="about" rows="6">${esc(state.profile.about)}</textarea></div>
+        <div class="form-row"><label>Career Objective</label><textarea data-field="objective" rows="6">${esc(state.profile.objective)}</textarea></div>
+        <button class="btn btn-block" type="submit">Save</button>
+      </form>`;
+    document.getElementById('aboutForm').addEventListener('submit', ev=>{
+      ev.preventDefault();
+      state.profile.about = document.querySelector('#aboutForm [data-field="about"]').value;
+      state.profile.objective = document.querySelector('#aboutForm [data-field="objective"]').value;
+      saveData(); renderProfile(); renderCvSheet();
+      showToast('About & objective updated');
+    });
+    return;
+  }
+  if(tab==='social'){
+    const p = state.profile;
+    el.innerHTML = `
+      <h3>Social Links</h3>
+      <form id="socialForm">
+        <div class="form-row"><label>LinkedIn</label><input data-field="linkedin" value="${esc(p.linkedin)}"></div>
+        <div class="form-row"><label>Facebook</label><input data-field="facebook" value="${esc(p.facebook)}"></div>
+        <div class="form-row"><label>GitHub</label><input data-field="github" value="${esc(p.github)}"></div>
+        <div class="form-row"><label>Other / Website</label><input data-field="website" value="${esc(p.website)}"></div>
+        <button class="btn btn-block" type="submit">Save Links</button>
+      </form>`;
+    document.getElementById('socialForm').addEventListener('submit', ev=>{
+      ev.preventDefault();
+      ['linkedin','facebook','github','website'].forEach(k=>{
+        state.profile[k] = document.querySelector(`#socialForm [data-field="${k}"]`).value;
+      });
+      saveData(); renderContact(); renderFooter();
+      showToast('Social links updated');
+    });
+    return;
+  }
+  if(tab==='settings'){
+    el.innerHTML = `
+      <h3>Settings</h3>
+      <div class="settings-block">
+        <h4>Appearance</h4>
+        <button class="btn btn-outline" id="settingsThemeBtn">Toggle Light / Dark Mode</button>
+      </div>
+      <div class="settings-block">
+        <h4>Admin Access</h4>
+        <p style="font-size:.85rem;margin-bottom:.8rem;">Anyone who knows this password can open Edit Mode on this site. Change it from the default before publishing. Note: as a frontend-only site, this is a basic deterrent, not real authentication — the password lives in this page's data and isn't cryptographically protected.</p>
+        <form id="adminPasswordForm" style="margin-bottom:.9rem;">
+          <div class="form-row"><label>New Admin Password</label><input id="newAdminPassword" type="text" placeholder="Leave blank to keep current password"></div>
+          <button type="submit" class="btn btn-outline btn-sm">Update Password</button>
+        </form>
+        <button class="btn btn-outline btn-sm" id="settingsLogout">Sign Out of Edit Mode</button>
+      </div>
+      <div class="settings-block">
+        <h4>Cloud Sync</h4>
+        <p style="font-size:.85rem;margin-bottom:.9rem;">Store your data on a free online backend instead of (or alongside) this browser's local storage, so it also shows up for visitors on other devices. Both options are opt-in — pick one, add your own free-tier credentials, then push your data.</p>
+        <div class="form-row">
+          <label>Provider</label>
+          <select id="cloudProviderSelect">
+            <option value="none">None — local browser storage only</option>
+            <option value="firebase">Firebase (Firestore)</option>
+            <option value="gdrive">Google Drive</option>
+          </select>
+        </div>
+        <div id="cloudProviderFields"></div>
+        <label style="display:flex;align-items:center;gap:.5em;margin:.8rem 0;font-size:.85rem;">
+          <input type="checkbox" id="cloudAutoSync"> Auto-push to the cloud after every save
+        </label>
+        <div style="display:flex;gap:.7rem;flex-wrap:wrap;">
+          <button class="btn btn-outline btn-sm" id="cloudPushBtn">Push My Data Now</button>
+          <button class="btn btn-outline btn-sm" id="cloudPullBtn">Pull Latest From Cloud</button>
+        </div>
+      </div>
+      <div class="settings-block">
+        <h4>Data Management</h4>
+        <div style="display:flex;gap:.7rem;flex-wrap:wrap;">
+          <button class="btn btn-outline btn-sm" id="settingsExport">Export Data (JSON)</button>
+          <label class="btn btn-outline btn-sm" style="cursor:pointer;">Import Data
+            <input type="file" id="settingsImport" accept="application/json" style="display:none;">
+          </label>
+          <button class="btn btn-danger btn-sm" id="settingsReset">Reset Data</button>
+        </div>
+      </div>`;
+    renderCloudProviderFields();
+    document.getElementById('cloudProviderSelect').value = state.settings.cloud.provider;
+    document.getElementById('cloudProviderSelect').addEventListener('change', ev=>{
+      state.settings.cloud.provider = ev.target.value;
+      saveData();
+      renderCloudProviderFields();
+    });
+    document.getElementById('cloudAutoSync').checked = !!state.settings.cloud.autoSync;
+    document.getElementById('cloudAutoSync').addEventListener('change', ev=>{
+      state.settings.cloud.autoSync = ev.target.checked;
+      saveData();
+    });
+    document.getElementById('cloudPushBtn').addEventListener('click', ()=>cloudPush(false));
+    document.getElementById('cloudPullBtn').addEventListener('click', ()=>cloudPull(false));
+    document.getElementById('settingsThemeBtn').addEventListener('click', toggleTheme);
+    document.getElementById('adminPasswordForm').addEventListener('submit', ev=>{
+      ev.preventDefault();
+      const val = document.getElementById('newAdminPassword').value.trim();
+      if(!val){ showToast('Password unchanged'); return; }
+      state.settings.adminPassword = val;
+      saveData();
+      document.getElementById('newAdminPassword').value = '';
+      showToast('Admin password updated');
+    });
+    document.getElementById('settingsLogout').addEventListener('click', adminLogout);
+    document.getElementById('settingsExport').addEventListener('click', exportData);
+    document.getElementById('settingsImport').addEventListener('change', e=>{
+      if(e.target.files[0]) importData(e.target.files[0]);
+    });
+    document.getElementById('settingsReset').addEventListener('click', resetData);
+    return;
+  }
+}
+
+/* =====================================================================
+   Modal helpers
+   ===================================================================== */
+function openModal(html){
+  document.getElementById('modalBody').innerHTML = html;
+  document.getElementById('modalOverlay').classList.add('open');
+}
+function closeModal(){
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.getElementById('modalBody').innerHTML = '';
+}
+
+/* =====================================================================
+   12. EVENT LISTENERS
+   ===================================================================== */
+document.addEventListener('click', e=>{
+  if(e.target.matches('[data-close-modal]')) closeModal();
+  if(e.target.id==='modalOverlay') closeModal();
+  const openTabBtn = e.target.closest('[data-open-tab]');
+  if(openTabBtn){ openAdminPanel(openTabBtn.dataset.openTab); }
+});
+
+document.getElementById('hamburger').addEventListener('click', ()=>{
+  document.getElementById('navLinks').classList.toggle('open');
+});
+document.querySelectorAll('.nav-links a').forEach(a=>{
+  a.addEventListener('click', ()=> document.getElementById('navLinks').classList.remove('open'));
+});
+
+function toggleTheme(){
+  const html = document.documentElement;
+  const next = html.getAttribute('data-theme')==='dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  document.getElementById('themeToggle').textContent = next==='dark' ? '☀️' : '🌙';
+  state.settings.theme = next;
+  saveData();
+}
+document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+
+document.getElementById('adminFab').addEventListener('click', ()=>openAdminPanel('profile'));
+document.getElementById('adminClose').addEventListener('click', closeAdminPanel);
+document.getElementById('adminOverlay').addEventListener('click', closeAdminPanel);
+
+/* --- Admin authentication gate ---
+   Frontend-only lock: keeps casual visitors out of Edit Mode by requiring
+   the admin password (set in Settings). This is NOT real security — anyone
+   who reads the page source can find/bypass it — but it stops normal
+   visitors from editing content, which is the goal for a static site. */
+const ADMIN_SESSION_KEY = 'portfolioAdminAuthed';
+function isAdminAuthed(){
+  return sessionStorage.getItem(ADMIN_SESSION_KEY) === '1';
+}
+function updateAdminFabIcon(){
+  document.getElementById('adminFab').textContent = isAdminAuthed() ? '🔓 Edit Website' : '🔒 Edit Website';
+}
+function openAdminPanel(tab){
+  if(!isAdminAuthed()){
+    promptAdminLogin(()=>openAdminPanel(tab));
+    return;
+  }
+  currentAdminTab = tab;
+  document.getElementById('adminPanel').classList.add('open');
+  document.body.classList.add('edit-mode');
+  renderAdminTabsNav();
+  renderAdminTab(tab);
+}
+function closeAdminPanel(){
+  document.getElementById('adminPanel').classList.remove('open');
+  document.body.classList.remove('edit-mode');
+}
+function promptAdminLogin(onSuccess){
+  openModal(`
+    <h3>Admin Sign-in</h3>
+    <p style="margin-bottom:1.2rem;">Enter the admin password to edit this website. This unlocks Edit Mode for your current browser session only.</p>
+    <form id="adminLoginForm">
+      <div class="form-row">
+        <label for="adminPasswordInput">Password</label>
+        <input id="adminPasswordInput" type="password" autocomplete="current-password" required>
+      </div>
+      <p id="adminLoginError" style="color:var(--danger);display:none;font-size:.85rem;">Incorrect password. Try again.</p>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-outline" data-close-modal>Cancel</button>
+        <button type="submit" class="btn">Sign in</button>
+      </div>
+    </form>
+  `);
+  document.getElementById('adminPasswordInput').focus();
+  document.getElementById('adminLoginForm').addEventListener('submit', ev=>{
+    ev.preventDefault();
+    const entered = document.getElementById('adminPasswordInput').value;
+    const correct = (state.settings && state.settings.adminPassword) || 'admin123';
+    if(entered === correct){
+      sessionStorage.setItem(ADMIN_SESSION_KEY, '1');
+      closeModal();
+      updateAdminFabIcon();
+      showToast('Signed in — Edit Mode unlocked for this session');
+      onSuccess();
+    } else {
+      document.getElementById('adminLoginError').style.display = 'block';
+    }
+  });
+}
+function adminLogout(){
+  sessionStorage.removeItem(ADMIN_SESSION_KEY);
+  closeAdminPanel();
+  updateAdminFabIcon();
+  showToast('Signed out of Edit Mode');
+}
+
+document.getElementById('blogSearch').addEventListener('input', e=>{
+  blogSearchQuery = e.target.value; renderBlog();
+});
+
+document.getElementById('contactForm').addEventListener('submit', e=>{
+  e.preventDefault();
+  showToast('Message noted — this demo form does not send email, but the layout is ready to wire up.');
+  e.target.reset();
+});
+
+document.getElementById('printCvBtn').addEventListener('click', ()=>window.print());
+document.getElementById('downloadCvBtn').addEventListener('click', downloadCvAsHtml);
+function downloadCvAsHtml(){
+  const p = state.profile;
+  const html = `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>${esc(p.name)} — CV</title>
+  <style>
+    body{font-family:Georgia,serif;max-width:720px;margin:40px auto;color:#17232B;line-height:1.6;}
+    h1{margin-bottom:0;} h2{border-bottom:1px solid #ccc;padding-bottom:4px;margin-top:28px;}
+    .meta{color:#555;margin-bottom:20px;} .entry{margin-bottom:14px;}
+    .row{display:flex;justify-content:space-between;font-weight:bold;}
+  </style></head><body>
+  <h1>${esc(p.name)}</h1>
+  <div class="meta">${esc(p.title)} — ${esc(p.location)} — ${esc(p.email)} — ${esc(p.phone)}</div>
+  <h2>Career Objective</h2><p>${esc(p.objective)}</p>
+  <h2>Education</h2>
+  ${state.education.map(ed=>`<div class="entry"><div class="row"><span>${esc(ed.degree)}</span><span>${esc(ed.start)}–${esc(ed.end)}</span></div><div>${esc(ed.institution)}${ed.location?', '+esc(ed.location):''}</div><div>${esc(ed.description)}</div></div>`).join('')}
+  <h2>Work Experience</h2>
+  ${state.experience.map(ex=>`<div class="entry"><div class="row"><span>${esc(ex.role)}</span><span>${esc(ex.start)}–${esc(ex.end)}</span></div><div>${esc(ex.company)}${ex.location?', '+esc(ex.location):''}</div><div>${esc(ex.description)}</div></div>`).join('')}
+  <h2>Skills</h2><p>${state.skills.map(s=>esc(s.name)+' ('+s.level+'%)').join(', ')}</p>
+  <h2>Certifications</h2><p>${state.certifications.map(c=>esc(c.name)+' — '+esc(c.issuer)+', '+esc(c.date)).join('; ')}</p>
+  </body></html>`;
+  const blob = new Blob([html], {type:'text/html'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = (p.name||'CV').replace(/\s+/g,'_') + '_CV.html'; a.click();
+  URL.revokeObjectURL(url);
+  showToast('CV downloaded as HTML — open it in a browser and print to PDF if needed');
+}
+
+// Scrollspy for active nav link
+const sectionIds = ['home','about','resume','skills','projects','blog','contact'];
+const navAnchors = {};
+sectionIds.forEach(id=>{ navAnchors[id] = document.querySelector(`.nav-links a[href="#${id}"]`); });
+const spyObserver = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      Object.values(navAnchors).forEach(a=>a && a.classList.remove('active'));
+      const link = navAnchors[entry.target.id];
+      if(link) link.classList.add('active');
+    }
+  });
+}, {rootMargin:'-40% 0px -55% 0px'});
+sectionIds.forEach(id=>{ const s = document.getElementById(id); if(s) spyObserver.observe(s); });
+
+/* =====================================================================
+   13. INITIALIZATION
+   ===================================================================== */
+async function init(){
+  const theme = state.settings && state.settings.theme === 'dark' ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', theme);
+  document.getElementById('themeToggle').textContent = theme==='dark' ? '☀️' : '🌙';
+  updateAdminFabIcon();
+  renderAll(); // render local/cached data immediately so the page never looks empty
+  if(state.settings.cloud && state.settings.cloud.provider!=='none'){
+    await cloudPull(true); // then quietly refresh with the latest cloud data, if configured
+  }
+}
+init();
+</script>
+</body>
+</html>
